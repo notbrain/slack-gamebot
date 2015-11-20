@@ -6,7 +6,7 @@ module SlackGamebot
         challenge = ::Challenge.find_by_user(data.channel, challenger)
         if challenge
           challenge.decline!(challenger)
-          send_message_with_gif client, data.channel, "#{challenge.challenged.map(&:user_name).join(' and ')} declined #{challenge.challengers.map(&:user_name).join(' and ')} challenge.", 'no'
+          send_message_with_gif client, data.channel, "#{challenge.challenged.map(&:user_name).join(' and ')} declined #{challenge.challengers.map(&:user_name).join(' and ')} challenge.", 'ping pong'
           logger.info "DECLINE: #{challenge}"
         else
           send_message client, data.channel, 'No challenge to decline!'
